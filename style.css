@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-size: 62.5%;
+    --color-base-darkblue: #065E7C;
+    --color-base-lightblue:  #387E96;
+    --color-base-white: #FFFFFF;
+    --color-base-gray-100: #202024;
+    --color-base-gray-300: #121214;
+}
+
+.app {
+    display: grid;
+    grid-template-areas: 
+    "A A A"
+    "B B C"
+    "D D D";
+}
+
+html, body, input {
+    font-family: "Mulish", sans-serif;
+}
+
+
+header {
+    width: 100%;
+    grid-area: A;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    background-color: var(--color-base-darkblue);
+    padding: 1rem 1.6rem;
+    margin: 0 auto;
+}
+
+input {
+    width: 100%;
+    padding: 1.6rem;
+    background-color: var(--color-base-lightblue);
+    border: 0;
+    border-radius: .4rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-base-white);
+}
+
+input::placeholder {
+    color: var(--color-base-white);
+}
+
+
+.avatar {
+    width: 4.2rem;
+    height: 4.2rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+button {
+    background-color: var(--color-base-darkblue);
+    border-radius: 50%;
+    border: 0;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 1rem;
+}
+
+button:hover {
+    background-color: var(--color-base-lightblue);
+}
+
+.like {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.deslike {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    grid-area: B;
+    padding: 4rem 4rem 4rem 10rem;
+}
+
+.buttons {
+    display: flex;
+}
+
+.titulo {
+    display: flex;
+    padding-bottom: 3.1rem;
+    padding-top: 1.4rem;
+}
+
+.titulo h1 {
+    padding-right: 36.6rem;
+}
+
+main p {
+    grid-area: B;
+    max-width: 80rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.sidebar {
+    grid-area: C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h1 {
+    padding-top: 4.4rem;
+}
+
+.details {
+    max-width: 20rem;
+    padding-left: 1.6rem;
+}
+
+.item {
+    display: flex;
+    margin: 3.2rem 1.6rem 0rem 3.4rem; 
+    align-items: center;
+    
+}
+
+.item:hover {
+    filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+}
+
+
+footer {
+    grid-area: D;
+    background-color: var(--color-base-lightblue);
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    padding: 1.6rem;
+    font-weight: 600;
+    
+}
+
+.item {
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;
+}
+
+
+header {
+    --startY: -100%;
+    animation: move .2s
+  }
+  
+  footer {
+    --startY: 100%;
+    animation: move .2s;
+  }
+  
+  @keyframes move {
+    from {
+      transform: translateY(var(--startY));
+    }
+  }
+
+@keyframes appear{
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 1100px) {
+    .app {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imgprincipal {
+        width: 100%;
+    }
+
+    .titulo {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+    .titulo h1 {
+        padding-right: 0;
+    }
+
+    main {
+        grid-area: B;
+        padding: 0rem 0rem 0rem 0rem;
+    }
+
+    .buttons {
+        display: flex;
+    }
+}
